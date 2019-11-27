@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		body {
+			margin: 0;
+		}
+
+		h3 {
+			color: #0f501d;
+			margin-left: 35px;
+		}
+
+		.container {
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+			width: 765px;
+		}
+
+		.lblText {
+
+			float: left;
+			font-size: 1.2rem;
+		}
+
+		.content {
+			padding: 30px;
+			background: #fdfcfc;
+			border: 1px solid #ccc;
+		}
+
+		.field {
+			margin: 10px;
+		}
+
+		table {
+			border-collapse: collapse;
+			width: 700px;
+			font-size: 1.2rem;
+		}
+
+		th,
+		td {
+			text-align: left;
+			padding: 8px;
+			height: 30px;
+		}
+
+		tr:nth-child(even) {
+			background-color: #f2f2f2
+		}
+
+		tr:nth-child(odd) {
+			background-color: #fff
+		}
+
+		thead th {
+			position: sticky;
+			left: 0;
+		}
+
+		tbody td {
+			position: sticky;
+			left: 0;
+		}
+
+		thead th:not(:first-child) {
+			background-color: #c7d8bd;
+			color: #0f501d;
+		}
+
+		thead th:first-child {
+			left: 0;
+			z-index: 1;
+			background-color: #93b181;
+			color: #0f501d;
+		}
+
+		tbody td:first-child {
+			left: 0;
+			z-index: 1;
+			color: #175023;
+			background-color: #dcdcdc;
+		}
+
+		.cost {
+			color: #ca502b;
+			font-weight: bold;
+		}
+
+		.allCost {
+			background: #f7edea;
+			padding: 20px;
+		}
+
+		.prevData {
+			background: #e2e9f5;
+			padding: 25px;
+			color: #295ca9;
+		}
+
+		.nextData {
+			padding: 25px;
+			background: #e4dff1;
+			color: #5a4888;
+		}
+
+		.btn {
+			text-align: center;
+		}
+
+		button {
+			margin: 20px 0 40px 0;
+			border: none;
+			padding: 10px;
+			width: 200px;
+			background: #93b181;
+			font-weight: bold;
+			color: #fff;
+			font-size: 1.2rem;
+			box-shadow: 5px 5px 5px #cccc;
+		}
+
+
+		input[type=text] {
+			width: 100%;
+			padding: 10px 20px;
+			margin: 8px 0;
+			box-sizing: border-box;
+			border: 3px solid #ccc;
+			-webkit-transition: 0.5s;
+			transition: 0.5s;
+			outline: none;
+			font-size: large;
+		}
+
+		input[type=text]:focus {
+			border: 3px solid #555;
+		}
+
+		@media(max-width: 700px) {
+			.container {
+				justify-content: center;
+				align-items: center;
+				height: 100vh;
+				width: 100vw;
+			}
+
+			.tableData {
+				overflow-x: auto;
+			}
+
+			.content {
+				padding: 0;
+				background: #fdfcfc;
+				border: 1px solid #ccc;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<div class="content">
+			<div class="allCost">
+				<div class="field">
+					<div class="lblText">
+						<label class="cost" for="cost">Сумма к оплате</label>
+					</div>
+					<input id="cost" name="cost" type="text" />
+				</div>
+			</div>
+
+			<div class="allData">
+				<div class="title">
+					<h3>Настоящие показания</h3>
+				</div>
+				<div class="prevData">
+					<div class="field">
+						<div class="lblText">
+							<label class="dataVat" for="main">Общие показания</label>
+						</div>
+						<input id="main" name="main" type="text" />
+					</div>
+					<div class="field">
+						<div class="lblText">
+							<label class="dataVat" for="my">Мои показания</label>
+						</div>
+						<input id="my" name="my" type="text" />
+					</div>
+					<div class="field">
+						<div class="lblText">
+							<label class="dataVat" for="tank">Показания бака</label>
+						</div>
+						<input id="tank" name="tank" type="text" />
+					</div>
+				</div>
+				<div class="title">
+					<h3>Предыдущие показания</h3>
+				</div>
+				<div class="nextData">
+					<div class="field">
+						<div class="lblText">
+							<label class="dataVat" for="mainPrev">Общие показания</label>
+						</div>
+						<input id="mainPrev" name="mainPrev" type="text" />
+					</div>
+					<div class="field">
+						<div class="lblText">
+							<label class="dataVat" for="myPrev">Мои показания</label>
+						</div>
+						<input id="myPrev" name="myPrev" type="text" />
+					</div>
+					<div class="field">
+						<div class="lblText">
+							<label class="dataVat" for="tankPrev">Показания бака</label>
+						</div>
+						<input id="tankPrev" name="tankPrev" type="text" />
+					</div>
+				</div>
+			</div>
+
+			<h3>Расчетные данные:</h3>
+			<div class="tableData">
+				<table>
+					<thead>
+						<tr>
+							<th>Наименование</th>
+							<th>Показания в кВт</th>
+							<th>Показания в %</th>
+							<th>Сумма к оплате</th>
+						</tr>
+						<thead>
+						<tbody>
+							<tr>
+								<td>Общие показания</td>
+								<td id="opv"></td>
+								<td id="opp"></td>
+								<td id="ops"></td>
+							</tr>
+							<tr>
+								<td>Мои показания</td>
+								<td id="mpv"></td>
+								<td id="mpp"></td>
+								<td id="mps"></td>
+							</tr>
+							<tr>
+								<td>Показания соседа</td>
+								<td id="spv"></td>
+								<td id="spp"></td>
+								<td id="sps"></td>
+							</tr>
+					<tbody>
+				</table>
+			</div>
+			<div class="btn">
+				<button id="btnOne">Рассчитать</button>
+			</div>
+		</div>
+	</div>
+
+	<script>
+
+		function getData() {
+			let cost = document.getElementById("cost").value;
+
+			let mainCostNew = document.getElementById("main").value;
+			let myCostNew = document.getElementById("my").value;
+			let tankCostNew = document.getElementById("tank").value;
+
+			let mainCostPrev = document.getElementById("mainPrev").value;
+			let myCostPrev = document.getElementById("myPrev").value;
+			let tankCostPrev = document.getElementById("tankPrev").value;
+
+			let mainCost = mainCostNew - mainCostPrev;
+			let myCost = myCostNew - myCostPrev;
+			let tankCost = tankCostNew - tankCostPrev;
+
+			let tank50 = (tankCost / 2);
+
+			//kVt
+			let opv = mainCost;
+			let mpv = myCost - tank50;
+			let spv = mainCost - myCost + tank50;
+
+			//%
+			let opp = 100;
+			let mpp = (mpv * 100 / opv).toFixed(2);
+			let spp = (spv * 100 / opv).toFixed(2);
+
+			//$
+			let ops = cost;
+			let mps = (cost / 100 * mpp).toFixed(2);
+			let sps = (cost / 100 * spp).toFixed(2);
+
+			//kVt
+			document.getElementById("opv").innerText = opv;
+			document.getElementById("mpv").innerText = mpv;
+			document.getElementById("spv").innerText = spv;
+			//%
+			document.getElementById("opp").innerText = opp;
+			document.getElementById("mpp").innerText = mpp;
+			document.getElementById("spp").innerText = spp;
+			//%
+			document.getElementById("ops").innerText = ops;
+			document.getElementById("mps").innerText = mps;
+			document.getElementById("sps").innerText = sps;
+		}
+
+
+		document.getElementById("btnOne").addEventListener("click", () => {
+			getData();
+		});
+
+	</script>
+</body>
+
+</html>
