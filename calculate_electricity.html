@@ -173,7 +173,7 @@
 					<div class="lblText">
 						<label class="cost" for="cost">Сумма к оплате</label>
 					</div>
-					<input id="cost" name="cost" type="text" />
+					<input id="cost" name="cost" type="text"   onkeyup="return validatorText(this);" onchange="return validatorText(this);"/>
 				</div>
 			</div>
 
@@ -186,19 +186,19 @@
 						<div class="lblText">
 							<label class="dataVat" for="main">Общие показания</label>
 						</div>
-						<input id="main" name="main" type="text" />
+						<input id="main" name="main" type="text"   onkeyup="return validatorText(this);" onchange="return validatorText(this);"/>
 					</div>
 					<div class="field">
 						<div class="lblText">
 							<label class="dataVat" for="my">Мои показания</label>
 						</div>
-						<input id="my" name="my" type="text" />
+						<input id="my" name="my" type="text"   onkeyup="return validatorText(this);" onchange="return validatorText(this);"/>
 					</div>
 					<div class="field">
 						<div class="lblText">
 							<label class="dataVat" for="tank">Показания бака</label>
 						</div>
-						<input id="tank" name="tank" type="text" />
+						<input id="tank" name="tank" type="text"   onkeyup="return validatorText(this);" onchange="return validatorText(this);"/>
 					</div>
 				</div>
 				<div class="title">
@@ -209,19 +209,19 @@
 						<div class="lblText">
 							<label class="dataVat" for="mainPrev">Общие показания</label>
 						</div>
-						<input id="mainPrev" name="mainPrev" type="text" />
+						<input id="mainPrev" name="mainPrev" type="text"   onkeyup="return validatorText(this);" onchange="return validatorText(this);"/>
 					</div>
 					<div class="field">
 						<div class="lblText">
 							<label class="dataVat" for="myPrev">Мои показания</label>
 						</div>
-						<input id="myPrev" name="myPrev" type="text" />
+						<input id="myPrev" name="myPrev" type="text"   onkeyup="return validatorText(this);" onchange="return validatorText(this);"/>
 					</div>
 					<div class="field">
 						<div class="lblText">
 							<label class="dataVat" for="tankPrev">Показания бака</label>
 						</div>
-						<input id="tankPrev" name="tankPrev" type="text" />
+						<input id="tankPrev" name="tankPrev" type="text"   onkeyup="return validatorText(this);" onchange="return validatorText(this);"/>
 					</div>
 				</div>
 			</div>
@@ -266,6 +266,9 @@
 	</div>
 
 		<script>
+		function validatorText(e){
+			e.value = e.value.replace(/[^\d.]/g, '')
+		};
 
 		function getData() {
 			let cost = document.getElementById("cost").value;
